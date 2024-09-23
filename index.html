@@ -34,14 +34,17 @@
         .font-family{
             font-family: "Lexend", sans-serif;
         }
+        .blur-transition {
+      transition: backdrop-filter 0.3s, background-color 0.3s;
+    }
     </style>
     
 </head>
 <body class="font-family max-w-[1440px] mx-auto ">
     <header class="">
       <!-- navigation bar -->
-      <nav class="bg-secondary  mt-2" >
-       <div class="flex justify-between items-center w-11/12 bg-secondary mx-auto">
+      <nav id="navbar"  class="fixed top-0 left-0 w-full z-50  blur-transition  mt-2" >
+       <div id="navigation" class="flex  justify-between items-center bg-secondary  w-11/12 mx-auto">
         <button class="btn  font-semibold text-xl bg-primary">Blog</button>
         <div class="  hidden sm:block sm:flex justify-around gap-2 items-center">
           <img src="./assets/logo.png" alt="">
@@ -57,17 +60,18 @@
           </p>
         </div>
        </div>
+       <section class="mt-20 text-center w-11/12 w-full mx-auto">
+        <button id="donation-btn" class="btn bg-primary border-2  font-semibold text-xl ">Donation</button>
+        <button id="history-btn" class="btn border-dark_green  font-semibold text-xl ml-2 text-gray_color shadow-md  border-2">History</button>
+       </section>
 
 
       </nav>
        <!-- donation and history button -->
-       <section class="mt-20 text-center w-11/12 mx-auto">
-        <button id="donation-btn" class="btn bg-primary border-2  font-semibold text-xl ">Donation</button>
-        <button id="history-btn" class="btn border-dark_green  font-semibold text-xl ml-2 text-gray_color shadow-md  border-2">History</button>
-       </section>
+      
     
     </header>
-    <main id="main-section" class="max-w-[1140px]  mx-auto w-11/12 ">
+    <main id="main-section" class="max-w-[1140px] pt-48  mx-auto w-11/12 ">
        
          <!-- card 1 -->
         
@@ -87,7 +91,7 @@
                 The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.
               </p>
               <div class="my-4">
-              <input id="flood-input-field" type="text" placeholder="Write donation Amount" class="input w-full input-bordered" required />
+              <input id="flood-input-field" type="number" placeholder="Write donation Amount" class="input w-full input-bordered" required />
 
               </div>
               <button onclick="my_modal_1.showModal()"    id="donate-btn" class="btn w-full text-xl font-semibold bg-primary">Donate Now</button>
@@ -126,7 +130,7 @@
                 The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.
               </p>
               <div class="my-4">
-              <input type="text" id="flood-input-field-2" placeholder="Write donation Amount" class="input w-full input-bordered" required />
+              <input type="number" id="flood-input-field-2" placeholder="Write donation Amount" class="input w-full input-bordered" required />
 
               </div>
               <button  onclick="my_modal_2.showModal()" id="donate-btn-2"  class="btn w-full text-xl font-semibold bg-primary">Donate Now</button>
@@ -165,7 +169,7 @@
                 The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.
               </p>
               <div class="my-4">
-              <input type="text" id="flood-input-field-3" placeholder="Write donation Amount" class="input w-full input-bordered" required />
+              <input type="number" id="flood-input-field-3" placeholder="Write donation Amount" class="input w-full input-bordered" required />
 
               </div>
               <button onclick="my_modal_3 .showModal()" id="donate-btn-3" class="btn w-full  text-xl font-semibold bg-primary">Donate Now</button>
@@ -191,11 +195,25 @@
 
     </main>
      <!-- history section -->
-     <div id="history-container" class="hidden">
+     <div id="history-container" class="hidden mt-56">
 
      </div>
     <script src="js/donation_1.js"></script>
     <script src="js/donation_2.js"></script>
     <script src="js/donation_3.js"></script>
+    <script>
+      const navbar = document.getElementById('navbar');
+      const navigationBar=document.getElementById('navigation')
+  
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add('backdrop-blur-md', 'bg-opacity-100');
+          navigationBar.classList.remove('bg-secondary')
+        } else {
+          navbar.classList.remove('backdrop-blur-md', 'bg-opacity-100');
+          navigationBar.classList.add('bg-secondary')
+        }
+      });
+    </script>
 </body>
 </html>
