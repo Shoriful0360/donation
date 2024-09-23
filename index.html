@@ -38,11 +38,11 @@
     
 </head>
 <body class="font-family max-w-[1440px] mx-auto ">
-    <header>
+    <header class="relative">
       <!-- navigation bar -->
-      <nav class="bg-secondary mt-2" >
+      <nav class="bg-secondary  mt-2" >
        <div class="flex justify-between items-center w-11/12 bg-secondary mx-auto">
-        <button class="btn font-semibold text-xl bg-primary">Blog</button>
+        <button class="btn  font-semibold text-xl bg-primary">Blog</button>
         <div class="  hidden sm:block sm:flex justify-around gap-2 items-center">
           <img src="./assets/logo.png" alt="">
           <br>
@@ -67,7 +67,7 @@
        </section>
     
     </header>
-    <main id="main-section" class="max-w-[1140px] mx-auto w-11/12 ">
+    <main id="main-section" class="max-w-[1140px]  mx-auto w-11/12 ">
        
          <!-- card 1 -->
         
@@ -130,7 +130,7 @@
 
               </div>
               <button  onclick="my_modal_2.showModal()" id="donate-btn-2"  class="btn w-full text-xl font-semibold bg-primary">Donate Now</button>
-              <dialog id="my_modal_2" class="modal ">
+              <dialog id="my_modal_2" class="modal hidden ">
                 <div class="modal-box text-center ">
                   <h3 class="text-2xl font-bold">Congrates!</h3>
                   <div class="flex justify-center items-center"><img  src="./assets/coin.png" alt=""></div>
@@ -157,7 +157,7 @@
             <div>
               <button class="flex items-center gap-2 bg-gray2 p-2 rounded-md">
                 <img src="./assets/coin.png" alt="">
-                <span>2400</span>
+                <span donate-balance-2>2400</span>
                 <span>BDT</span>
               </button>
               <h1 class="text-xl py-2 lg:py-4 font-bold">Aid for Injured in the Quota Movement</h1>
@@ -165,11 +165,11 @@
                 The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.
               </p>
               <div class="my-4">
-              <input type="text" placeholder="Write donation Amount" class="input w-full input-bordered" required />
+              <input type="text" id="flood-input-field-3" placeholder="Write donation Amount" class="input w-full input-bordered" required />
 
               </div>
-              <button onclick="my_modal_3.showModal()" class="btn w-full text-xl font-semibold bg-primary">Donate Now</button>
-              <dialog id="my_modal_3" class="modal ">
+              <button onclick="my_modal_3.showModal()" id="donate-btn-2" class="btn w-full  text-xl font-semibold bg-primary">Donate Now</button>
+              <dialog id="my_modal_3" class="modal hidden ">
                 <div class="modal-box text-center ">
                   <h3 class="text-2xl font-bold">Congrates!</h3>
                   <div class="flex justify-center items-center"><img  src="./assets/coin.png" alt=""></div>
@@ -194,6 +194,7 @@
      <div id="history-container">
 
      </div>
-    <script src="js/usility.js"></script>
+    <script src="js/donation_1.js"></script>
+    <script src="js/donation_2.js"></script>
 </body>
 </html>
