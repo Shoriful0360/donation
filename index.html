@@ -38,7 +38,7 @@
     
 </head>
 <body class="font-family max-w-[1440px] mx-auto ">
-    <header class="relative">
+    <header class="">
       <!-- navigation bar -->
       <nav class="bg-secondary  mt-2" >
        <div class="flex justify-between items-center w-11/12 bg-secondary mx-auto">
@@ -90,7 +90,7 @@
               <input id="flood-input-field" type="text" placeholder="Write donation Amount" class="input w-full input-bordered" required />
 
               </div>
-              <button  onclick="my_modal_1.showModal()"  id="donate-btn" class="btn w-full text-xl font-semibold bg-primary">Donate Now</button>
+              <button onclick="my_modal_1.showModal()"    id="donate-btn" class="btn w-full text-xl font-semibold bg-primary">Donate Now</button>
               <!-- modal -->
               <dialog id="my_modal_1"  class="modal hidden ">
                 <div class="modal-box text-center ">
@@ -157,7 +157,7 @@
             <div>
               <button class="flex items-center gap-2 bg-gray2 p-2 rounded-md">
                 <img src="./assets/coin.png" alt="">
-                <span donate-balance-2>2400</span>
+                <span id="donate-balance-3">400</span>
                 <span>BDT</span>
               </button>
               <h1 class="text-xl py-2 lg:py-4 font-bold">Aid for Injured in the Quota Movement</h1>
@@ -168,8 +168,8 @@
               <input type="text" id="flood-input-field-3" placeholder="Write donation Amount" class="input w-full input-bordered" required />
 
               </div>
-              <button onclick="my_modal_3.showModal()" id="donate-btn-2" class="btn w-full  text-xl font-semibold bg-primary">Donate Now</button>
-              <dialog id="my_modal_3" class="modal hidden ">
+              <button onclick="my_modal_3 .showModal()" id="donate-btn-3" class="btn w-full  text-xl font-semibold bg-primary">Donate Now</button>
+              <dialog id="my_modal_3" class="modal  ">
                 <div class="modal-box text-center ">
                   <h3 class="text-2xl font-bold">Congrates!</h3>
                   <div class="flex justify-center items-center"><img  src="./assets/coin.png" alt=""></div>
@@ -191,10 +191,11 @@
 
     </main>
      <!-- history section -->
-     <div id="history-container">
+     <div id="history-container" class="hidden">
 
      </div>
     <script src="js/donation_1.js"></script>
     <script src="js/donation_2.js"></script>
+    <script src="js/donation_3.js"></script>
 </body>
 </html>

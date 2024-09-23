@@ -29,20 +29,39 @@ function getTextValueByID(id){
 
 // ****addeventlistener on donate button 1*********
 
-let totalDonationAmount=0;
+// let totalDonationAmount=0;
+
+
 document.getElementById('donate-btn').addEventListener('click' ,function(event){
-    // event.preventDefault();
+    event.preventDefault();
     
     
     
      const donationAmount= getInputFieldByID('flood-input-field');
-     if(isNaN(donationAmount) || donationAmount<0 ){
-        alert('Invalid Amount');
-        return ;
-        
-     }
+     const mainBalance=getTextValueByID('main-balance');
+     const donateBalance=getTextValueByID('donate-balance-1')
+     
+     
 
-     historyContainerEl.innerHTML +=`
+    // //  insufficient balance
+     if(donationAmount>mainBalance || isNaN(donationAmount) || donationAmount<0){
+        return alert('Invalid Amount');
+     }
+     //  calculation part
+     const newDonateBalance=donateBalance + donationAmount;
+     const newMainBalance= mainBalance-donationAmount;
+
+
+     document.getElementById('donate-balance-1').innerText=newDonateBalance;
+     document.getElementById('main-balance').innerText= newMainBalance
+
+
+    
+     
+    
+
+
+        historyContainerEl.innerHTML +=`
     <div class="border-2 p-5 rounded-md mt-4">
      <p>${donationAmount} taka is Donated for Flood Relief in Noakhali,Bangladesh  </P>
      <p> ${new Date()} </p>
@@ -50,18 +69,13 @@ document.getElementById('donate-btn').addEventListener('click' ,function(event){
         
     
      `
-
      
-     totalDonationAmount += donationAmount;
-     document.getElementById('donate-balance-1').innerText=totalDonationAmount;
-     document.getElementById('flood-input-field').value='';
-      const mainBalance= getTextValueByID('main-balance');
-      
-      const newBlance=mainBalance - donationAmount;
-     
+     document.getElementById('my_modal_1').classList.remove('hidden');
+     document.getElementById('flood-input-field').value = "";
 
-        document.getElementById('main-balance').innerText=newBlance;
-      document.getElementById('my_modal_1').classList.remove('hidden');
+   
+
+    
     
 })
 
@@ -75,6 +89,8 @@ document.getElementById('donate-btn').addEventListener('click' ,function(event){
 // **********history addeventlistener************
 document.getElementById('history-btn').addEventListener('click',function(){
     document.getElementById('main-section').classList.add('hidden');
+    historyContainerEl.classList.remove('hidden')
+
     historyButtonEL.classList.add('bg-primary')
     historyButtonEL.classList.remove('border-dark_green')
     donationButtonEL.classList.remove('bg-primary')
@@ -86,10 +102,12 @@ document.getElementById('history-btn').addEventListener('click',function(){
 
 donationButtonEL.addEventListener('click',function(){
     document.getElementById('main-section').classList.remove('hidden');
+    historyContainerEl.classList.add('hidden')
     donationButtonEL.classList.add('bg-primary')
     donationButtonEL.classList.remove('border-dark_green')
     historyButtonEL.classList.remove('bg-primary')
     historyButtonEL.classList.add('border-dark_green')
+
 
 })
 
