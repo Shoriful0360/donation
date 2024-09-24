@@ -111,3 +111,14 @@ donationButtonEL.addEventListener('click',function(){
 
 })
 
+
+
+// ***********addEventListener faq html link*********
+
+
+
+document.getElementById('blog-btn').addEventListener('click',function(){
+      window.location.href = 'faq.html'; 
+})
+
+
