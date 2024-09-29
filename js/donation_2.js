@@ -3,6 +3,7 @@
 const doanateBalanceEl2=document.getElementById('donate-balance-2');
 const donationeButtonEL2=document.getElementById('donate-btn-2');
 const inputFieldEl2= document.getElementById('flood-input-field-2');
+const modal=document.getElementById('my_modal_2');
 
 
 // *****addeventlistener donation button2**********
@@ -12,13 +13,18 @@ const inputFieldEl2= document.getElementById('flood-input-field-2');
 donationeButtonEL2.addEventListener('click',function(event){
     event.preventDefault();
     
+    
     const donationAmount= getInputFieldByID('flood-input-field-2');
     const mainBalance=getTextValueByID('main-balance');
     const donateBalance=getTextValueByID('donate-balance-2')
+   
+  
 
     // //  insufficient balance
-    if(donationAmount>mainBalance || isNaN(donationAmount) || donationAmount<0){
-      return alert('Invalid Amount');
+    if(donationAmount>mainBalance || isNaN(donationAmount) ||donationAmount ==='string' || donationAmount<0){
+      alert('Invalid Amount');
+     return inputFieldEl2.value=''
+
    }
     //  calculation part
     const newDonateBalance=donateBalance + donationAmount;
@@ -42,6 +48,11 @@ donationeButtonEL2.addEventListener('click',function(event){
        
    
     `
-    document.getElementById('my_modal_2').classList.remove('hidden');
+   
+   
     document.getElementById('flood-input-field-2').value = "";
+    document.getElementById('my_modal_2').showModal()
 })
+
+
+

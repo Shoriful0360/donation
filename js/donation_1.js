@@ -29,7 +29,7 @@ function getTextValueByID(id){
 
 // ****addeventlistener on donate button 1*********
 
-// let totalDonationAmount=0;
+
 
 
 document.getElementById('donate-btn').addEventListener('click' ,function(event){
@@ -39,21 +39,16 @@ document.getElementById('donate-btn').addEventListener('click' ,function(event){
     
      const donationAmount= getInputFieldByID('flood-input-field');
      const mainBalance=getTextValueByID('main-balance');
-     const donateBalance=getTextValueByID('donate-balance-1')
-     
-     
-
-    // //  insufficient balance
-     if(donationAmount>mainBalance || isNaN(donationAmount) || donationAmount<0){
-        return alert('Invalid Amount');
-     }
-     //  calculation part
+     const donateBalance=getTextValueByID('donate-balance-1');
+     if(!isNaN(donationAmount) && (donationAmount<mainBalance) && (donationAmount>0)){
+        //  calculation part
      const newDonateBalance=donateBalance + donationAmount;
      const newMainBalance= mainBalance-donationAmount;
 
 
      document.getElementById('donate-balance-1').innerText=newDonateBalance;
      document.getElementById('main-balance').innerText= newMainBalance
+    
 
 
     
@@ -70,11 +65,27 @@ document.getElementById('donate-btn').addEventListener('click' ,function(event){
     
      `
      
-     document.getElementById('my_modal_1').classList.remove('hidden');
-     document.getElementById('flood-input-field').value = "";
+     document.getElementById('my_modal_1').showModal()
+      document.getElementById('flood-input-field').value = "";
+     
+     
 
    
 
+     }
+     
+     
+
+    // //  insufficient balance
+    //  if(donationAmount>mainBalance || isNaN(donationAmount) || donationAmount<0){
+    //     return alert('Invalid Amount');
+    //  }
+     
+else{
+    alert('invalid')
+    
+    return document.getElementById('my_modal_1')
+}
     
     
 })

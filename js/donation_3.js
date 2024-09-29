@@ -7,6 +7,7 @@ const inputFieldEl3= document.getElementById('flood-input-field-3');
 
 
 
+
 // *****addeventlistener donation button3**********
 
 
@@ -18,11 +19,15 @@ donationeButtonEL3.addEventListener('click',function(event){
     const donateBalance=getTextValueByID('donate-balance-3')
 
 
+    // !isNaN(inputValue) && inputValue.trim() !== ""
 
 
     // //  insufficient balance
-    if(donationAmount>mainBalance || isNaN(donationAmount) || donationAmount<0){
+    if(donationAmount>mainBalance || isNaN(donationAmount) || donationAmount <0 ){
+        
+        
         return alert('Invalid Amount');
+       
      }
       //  calculation part
       const newDonateBalance=donateBalance + donationAmount;
@@ -45,7 +50,8 @@ donationeButtonEL3.addEventListener('click',function(event){
     `
 
    
-    document.getElementById('my_modal_3').classList.remove('hidden');
+    document.getElementById('my_modal_3').showModal()
     document.getElementById('flood-input-field-3').value = "";
+
     
 })
